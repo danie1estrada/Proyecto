@@ -2,12 +2,8 @@ package proyecto.ordenamiento;
 
 public class Quicksort extends Algoritmo {
     
-    public Quicksort(int[] arreglo) {
-        super(arreglo);
-        quicksort();
-    }
-    
-    public void quicksort() {
+    @Override
+    public void ordenar() {
         quicksort(0, arreglo.length - 1);
     }
     

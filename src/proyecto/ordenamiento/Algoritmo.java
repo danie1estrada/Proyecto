@@ -2,30 +2,32 @@ package proyecto.ordenamiento;
 
 public abstract class Algoritmo {
     
-    protected final int[] arreglo;
-    protected int intercambios;
+    protected int accion;
+    protected int[] arreglo;
     
-    public Algoritmo(int[] arreglo) {
+    @Override
+    public abstract String toString();
+    
+    public abstract String getNombre();
+    
+    public abstract void ordenar();
+    
+    public void setArreglo(int[] arreglo) {
         this.arreglo = arreglo;
-    }
-    
-    public void intercambiar(int pos1, int pos2) {
-        int aux = arreglo[pos1];
-        arreglo[pos1] = arreglo[pos2];
-        arreglo[pos2] = aux;
-        intercambios++;
     }
     
     public int[] getArreglo() {
         return arreglo;
     }
     
-    public int getIntercambios() {
-        return intercambios;
+    public int getAccion() {
+        return accion;
     }
     
-    public abstract String getNombre();
-    
-    @Override
-    public abstract String toString();
+    public void intercambiar(int pos1, int pos2) {
+        int aux = arreglo[pos1];
+        arreglo[pos1] = arreglo[pos2];
+        arreglo[pos2] = aux;
+        accion++;
+    }   
 }

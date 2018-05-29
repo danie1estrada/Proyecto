@@ -1,13 +1,9 @@
 package proyecto.ordenamiento;
 
 public class Shell extends Algoritmo {
-
-    public Shell(int[] arreglo) {
-        super(arreglo);
-        shell();
-    }
     
-    public void shell() {
+    @Override
+    public void ordenar() {
         boolean cambio;
         
         for (int salto = arreglo.length / 2; salto != 0; salto /= 2) {
