@@ -1,13 +1,18 @@
 package proyecto;
 
-import java.util.ArrayList;
+import proyecto.ordenamiento.Algoritmo;
 import proyecto.ordenamiento.Quicksort;
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 public class Prueba {
     
-    public static void imprimir(int[] arreglo, String accion, int num) {
-        String mensaje = "Arreglo: " + arregloToString(arreglo) + "\n" +
-                         accion + num;
+    public static void imprimir(Algoritmo metodo, String accion, int[] original) {
+        String mensaje =
+                "Original: " + arregloToString(original) + "\n" +
+                "Ordenado: " + metodo.toString() + "\n" +
+                accion + ": " + metodo.getIntercambios();
+        JOptionPane.showMessageDialog(null, mensaje, metodo.getNombre(), JOptionPane.INFORMATION_MESSAGE);
     }
     
     public static String arregloToString(int[] arreglo) {
@@ -52,7 +57,9 @@ public class Prueba {
     }
     
     public static void main(String[] args) {
-        int arreglo[] = generarArreglo(10);
-        Quicksort qs = new Quicksort(arreglo);
+        int original[] = generarArreglo(10);
+        Quicksort qs = new Quicksort(original.clone());
+        
+        imprimir(qs, "Intercambios", original);
     }
 }

@@ -1,19 +1,10 @@
 package proyecto.ordenamiento;
 
-public class Quicksort {
-    
-    private final int[] arreglo;
-    private int intercambios;
+public class Quicksort extends Algoritmo {
     
     public Quicksort(int[] arreglo) {
-        this.arreglo = arreglo;
-    }
-    
-    public void intercambiar(int pos1, int pos2) {
-        int aux = arreglo[pos1];
-        arreglo[pos1] = arreglo[pos2];
-        arreglo[pos2] = aux;
-        intercambios++;
+        super(arreglo);
+        quicksort();
     }
     
     public void quicksort() {
@@ -24,7 +15,6 @@ public class Quicksort {
         int izq = limInf;
         int der = limSup;
         int pivote = arreglo[izq];
-        System.out.println(toString());
         
         while (izq <= der) {
             while (pivote > arreglo[izq]) {
@@ -50,19 +40,20 @@ public class Quicksort {
         }
     }
     
-    public int[] getArreglo() {
-        return arreglo;
+    @Override
+    public String getNombre() {
+        return "Quicksort";
     }
     
     @Override
     public String toString() {
-        String ordenado = "";
+        String cadena = "";
         for (int i = 0; i < arreglo.length; i++) {
-            ordenado += String.valueOf(arreglo[i]);
+            cadena += String.valueOf(arreglo[i]);
             if (i != arreglo.length - 1) {
-                ordenado += ", ";
+                cadena += ", ";
             }
         }
-        return ordenado;
+        return cadena;
     }
 }
